@@ -12,7 +12,7 @@ RUN ln -s `which nodejs` /usr/bin/node
 
 RUN npm install --global gulp-cli
 
-RUN gem install jekyll
+RUN gem install jekyll && gem install bundler
 
 RUN mkdir /build && chown aws /build
 
