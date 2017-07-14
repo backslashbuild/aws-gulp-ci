@@ -3,16 +3,12 @@ FROM fstab/aws-cli
 USER root
 
 RUN apt-get update && apt-get install -y \
-nodejs \
-npm \
-git \
-ruby-full
+curl \
+git
 
-RUN ln -s `which nodejs` /usr/bin/node
+RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 
-RUN npm install --global gulp-cli
-
-RUN gem install jekyll && gem install bundler && gem install sass
+RUN apt-get install -y nodejs
 
 RUN mkdir /build && chown aws /build
 
